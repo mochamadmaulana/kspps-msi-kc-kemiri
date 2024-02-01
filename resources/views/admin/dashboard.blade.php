@@ -8,7 +8,7 @@
                 @if (!empty($galeri_kantor->count()))
                 @foreach ($galeri_kantor as $key => $gl)
                 <div class="carousel-item <?= $key == 0 ? 'active' : '' ?>">
-                    <img class="d-block w-100 rounded" alt="" src="{{ asset('storage/img/kantor/'.$uuid_kantor.'/'.$gl->hash) }}">
+                    <img class="d-block w-100 rounded" alt="" src="{{ asset('storage/img/kantor/'.$uuid.'/'.$gl->hash) }}">
                 </div>
                 @endforeach
                 @else
@@ -103,7 +103,7 @@
                 <h3 class="card-title">VISI</h3>
             </div>
             <div class="card-body">
-                <p><span class="ms-5"></span>Menjadi koperasi sebagai mitra yang amanah dalam mewujudkan harapan dan kesejahteraan anggotanya</p>
+                <p><span class="ms-5"></span>Menjadi koperasi sebagai mitra yang amanah dalam mewujudkan harapan dan kesejahteraan anggotanya.</p>
             </div>
         </div>
     </div>
@@ -117,7 +117,7 @@
                     <li>Menciptakan kesejahteraan bagi para anggota yang berkesinambungan.</li>
                     <li>Berdaya guna sebagai mitra strategis dan terpercaya bagi anggota.</li>
                     <li>Berkontribusi dalam perkembangan perkoprasian di indonesia.</li>
-                    <li>Koperasi dan unit usaha secara profesional dengan menerapkan prinsi <span class="fw-bold fst-italic">Good Corporate Governance</span>.</li>
+                    <li>Koperasi dan unit usaha secara profesional dengan menerapkan prinsip <span class="fw-bold fst-italic">Good Corporate Governance</span>.</li>
                 </ol>
             </div>
         </div>
