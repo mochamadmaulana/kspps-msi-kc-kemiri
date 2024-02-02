@@ -3,7 +3,7 @@
 
 <head>
     <!-- Icon title bar -->
-    <link rel="shortcut icon" href="{{ asset('frontend/dist/img/logo-msi.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ asset('frontend') }}/dist/img/logo-msi.png" type="image/png">
 
     <meta charset="utf-8" />
 

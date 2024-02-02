@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
     <head>
+        <!-- Icon title bar -->
+        <link rel="shortcut icon" href="{{ asset('frontend') }}/dist/img/logo-msi.png" type="image/png">
+
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
         <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
