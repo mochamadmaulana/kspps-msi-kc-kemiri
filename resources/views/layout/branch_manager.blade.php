@@ -55,14 +55,19 @@
                 <div class="navbar-nav flex-row order-md-last">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
+                            @if (Auth::user()->foto_profile == NULL)
                             <span class="avatar avatar-sm" style="background-image: url({{ asset('frontend/dist/img/default.jpg') }})"></span>
+                            @else
+                            {{-- <span class="avatar avatar-sm" style="background-image: url({{ asset('storage/img/foto-profile/'.Auth::user()->kantor->uuid.'/'.Auth::user()->foto_profile) }})"></span> --}}
+                            <img src="{{ asset('storage/img/foto-profile/'.Auth::user()->kantor->uuid.'/'.Auth::user()->foto_profile) }}" class="avatar avatar-sm"></img>
+                            @endif
                             <div class="d-none d-xl-block ps-2">
                                 <div>{{ Auth::user()->nama_lengkap }}</div>
                                 <div class="mt-1 small text-muted">{{ Auth::user()->role }}</div>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <a href="./profile.html" class="dropdown-item">Profile</a>
+                            <a href="{{ route('branch-manager.profile.index') }}" class="dropdown-item {{ Request::is('branch-manager/profile*') ? 'active text-primary' : '' }}">Profile</a>
                             {{-- <div class="dropdown-divider"></div> --}}
                             <a href="{{ route('logout') }}" class="dropdown-item">Logout</a>
                         </div>

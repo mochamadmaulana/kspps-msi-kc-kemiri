@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\SatffLapangan\ProfileController;
 use App\Http\Controllers\StaffLapangan\AnggotaController;
 use App\Http\Controllers\StaffLapangan\DashboardController;
 use App\Http\Controllers\StaffLapangan\Laporan\PengajuanAnggotaController;
 use App\Http\Controllers\StaffLapangan\Laporan\PengajuanPembiayaanController;
 use App\Http\Controllers\StaffLapangan\Laporan\PenyaluranPembiayaanController;
 use App\Http\Controllers\StaffLapangan\PembiayaanController;
+use App\Http\Controllers\StaffLapangan\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->prefix('staff-lapangan')->name('staff-lapangan.')->group(function () {

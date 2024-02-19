@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BranchManager\AnggotaController;
 use App\Http\Controllers\BranchManager\DashboardController;
+use App\Http\Controllers\BranchManager\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->prefix('branch-manager')->name('branch-manager.')->group(function () {
@@ -22,6 +23,15 @@ Route::middleware('auth')->prefix('branch-manager')->name('branch-manager.')->gr
         Route::put('selfie-identitas/{anggota}/update/{id}',[AnggotaController::class,'update_selfie_identitas'])->name('update-selfie-identitas');
         Route::put('kartu-keluarga/{anggota}/update/{id}',[AnggotaController::class,'update_kartu_keluarga'])->name('update-kartu-keluarga');
         Route::put('pembayaran-registrasi/{anggota}/update/{id}',[AnggotaController::class,'update_pembayaran_registrasi'])->name('update-pembayaran-registrasi');
+    });
+
+    Route::prefix('profile')->name('profile.')->group(function () {
+        Route::get('/',[ProfileController::class,'index'])->name('index');
+        Route::get('edit',[ProfileController::class,'edit'])->name('edit');
+        Route::put('update',[ProfileController::class,'update'])->name('update');
+        Route::post('password/update',[ProfileController::class,'update_password'])->name('update-password');
+        Route::post('upload-foto-profile',[ProfileController::class,'upload_foto_profile'])->name('upload-foto-profile');
+        Route::delete('delete-foto-profile',[ProfileController::class,'delete_foto_profile'])->name('delete-foto-profile');
     });
 
 });

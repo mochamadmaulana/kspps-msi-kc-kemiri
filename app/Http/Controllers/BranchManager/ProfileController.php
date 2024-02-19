@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\SatffLapangan;
+namespace App\Http\Controllers\BranchManager;
 
 use App\Http\Controllers\Controller;
 use App\Models\Kota;
@@ -15,14 +15,14 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        return view('staff-lapangan.profile.index');
+        return view('branch-manager.profile.index');
     }
 
     public function edit()
     {
         $profile = User::with('tempat_lahir')->findOrFail(Auth::user()->id);
         $tempat_lahir = Kota::orderBy('nama_kota')->get();
-        return view('staff-lapangan.profile.edit',compact('profile','tempat_lahir'));
+        return view('branch-manager.profile.edit',compact('profile','tempat_lahir'));
     }
 
     public function update(Request $request)
@@ -45,7 +45,7 @@ class ProfileController extends Controller
             'tempat_lahir_id' => $request->tempat_lahir,
             'tanggal_lahir' => $request->tanggal_lahir,
         ]);
-        return redirect()->route('staff-lapangan.profile.index')->with('success','Berhasil mengedit profile akun');
+        return redirect()->route('branch-manager.profile.index')->with('success','Berhasil mengedit profile akun');
     }
 
     public function update_password(Request $request)
