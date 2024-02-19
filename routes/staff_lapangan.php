@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SatffLapangan\ProfileController;
 use App\Http\Controllers\StaffLapangan\AnggotaController;
 use App\Http\Controllers\StaffLapangan\DashboardController;
 use App\Http\Controllers\StaffLapangan\Laporan\PengajuanAnggotaController;
@@ -40,11 +41,11 @@ Route::middleware('auth')->prefix('staff-lapangan')->name('staff-lapangan.')->gr
     });
 
     Route::prefix('profile')->name('profile.')->group(function () {
-        // Route::get('/',[ProfileController::class,'index'])->name('index');
-        // Route::get('edit',[ProfileController::class,'edit'])->name('edit');
-        // Route::put('update',[ProfileController::class,'update'])->name('update');
-        // Route::post('password/update',[ProfileController::class,'update_password'])->name('update-password');
-        // Route::post('upload-foto-profile',[ProfileController::class,'upload_foto_profile'])->name('upload-foto-profile');
-        // Route::delete('delete-foto-profile',[ProfileController::class,'delete_foto_profile'])->name('delete-foto-profile');
+        Route::get('/',[ProfileController::class,'index'])->name('index');
+        Route::get('edit',[ProfileController::class,'edit'])->name('edit');
+        Route::put('update',[ProfileController::class,'update'])->name('update');
+        Route::post('password/update',[ProfileController::class,'update_password'])->name('update-password');
+        Route::post('upload-foto-profile',[ProfileController::class,'upload_foto_profile'])->name('upload-foto-profile');
+        Route::delete('delete-foto-profile',[ProfileController::class,'delete_foto_profile'])->name('delete-foto-profile');
     });
 });

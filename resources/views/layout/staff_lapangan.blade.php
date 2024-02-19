@@ -67,7 +67,7 @@
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <a href="./profile.html" class="dropdown-item">Profile</a>
+                            <a href="{{ route('staff-lapangan.profile.index') }}" class="dropdown-item {{ Request::is('staff-lapangan/profile*') ? 'active text-primary' : '' }}">Profile</a>
                             {{-- <div class="dropdown-divider"></div> --}}
                             <a href="{{ route('logout') }}" class="dropdown-item">Logout</a>
                         </div>
