@@ -1,4 +1,4 @@
-@extends('layout.admin',['title_satu'=>'List','title_dua'=>'Kantor KC - '.$kantor->nama])
+@extends('layout.admin',['title_satu'=>'List','title_dua'=>'Kantor KC - '.Helpers::str_ucfirst($kantor->nama)])
 
 @section('page-body')
 <div class="row">

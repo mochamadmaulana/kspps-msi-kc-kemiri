@@ -43,13 +43,13 @@ class Helpers {
             return 'badge bg-green-lt';
         }
     }
-    public static function badge_status_keanggotaan(string $role)
+    public static function badge_status_keanggotaan(string $status)
     {
-        if($role == 'Tidak Aktif'){
+        if($status == 'Tidak Aktif'){
             return 'badge bg-red';
-        }elseif($role == 'Aktif'){
+        }elseif($status == 'Aktif'){
             return 'badge bg-green';
-        }elseif($role == 'Dibekukan'){
+        }elseif($status == 'Dibekukan'){
             return 'badge bg-muted';
         }else{
             return 'badge bg-red';
@@ -67,6 +67,18 @@ class Helpers {
             return 'badge bg-red';
         }else{
             return 'badge bg-blue';
+        }
+    }
+    public static function badge_status_karyawan(string $status)
+    {
+        if($status == 'Tidak Aktif'){
+            return 'badge bg-red';
+        }elseif($status == 'Aktif'){
+            return 'badge bg-green';
+        }elseif($status == 'Dibekukan'){
+            return 'badge bg-muted';
+        }else{
+            return 'badge bg-red';
         }
     }
 }

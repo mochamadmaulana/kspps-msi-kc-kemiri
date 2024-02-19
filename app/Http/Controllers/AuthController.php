@@ -27,7 +27,7 @@ class AuthController extends Controller
         $karyawan = User::with('tempat_lahir','kantor')->where('nomor_induk_karyawan',$request->nomor_induk_karyawan)->first();
         if (!empty($karyawan) && $request->nomor_induk_karyawan === $karyawan->nomor_induk_karyawan) {
             if (!empty($karyawan) && Hash::check($request->password, $karyawan->password)) {
-                if($karyawan->aktif == true){
+                if($karyawan->status == 'Aktif'){
                     if ($karyawan->role === 'Admin') {
                         Auth::login($karyawan);
                         return redirect()->route('admin.dashboard')->with('success', 'Berhasil, Selamat bekerja..');

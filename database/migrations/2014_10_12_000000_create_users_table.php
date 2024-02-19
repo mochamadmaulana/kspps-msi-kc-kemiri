@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email',150)->unique()->nullable();
             $table->foreignId('tempat_lahir_id');
             $table->date('tanggal_lahir');
-            $table->boolean('aktif')->default(true);
+            $table->enum('status',['Tidak Aktif','Aktif','Dibekukan','Keluar'])->default('Aktif');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('foto_profile')->nullable();

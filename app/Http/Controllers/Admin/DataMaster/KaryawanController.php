@@ -101,7 +101,7 @@ class KaryawanController extends Controller
         $karyawan->update([
             'nomor_induk_karyawan' => $request->nomor_induk_karyawan,
             'nama_lengkap' => $request->nama_lengkap,
-            'email' => $request->email,
+            'email' => strtolower($request->email),
             'role' => $request->role,
             'tempat_lahir_id' => $request->tempat_lahir,
             'tanggal_lahir' => $request->tanggal_lahir,

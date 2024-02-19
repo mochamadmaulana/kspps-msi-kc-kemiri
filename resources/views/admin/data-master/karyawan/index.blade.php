@@ -56,15 +56,9 @@
                         <td>{{ $k->nomor_induk_karyawan }}</td>
                         <td>{{ $k->nama_lengkap }}</td>
                         <td>{{ $k->email }}</td>
-                        <td>{{ $k->tempat_lahir->nama_kota }}, {{ date('d-M-Y',strtotime($k->tanggal_lahir)) }}</td>
+                        <td>{{ \Helpers::str_ucfirst($k->tempat_lahir->nama_kota) }}, {{ \Carbon\Carbon::parse($k->tanggal_lahir)->translatedFormat('d F Y') }}</td>
                         <td><span class="{{ \Helpers::bg_badge_role($k->role) }}">{{ $k->role }}</span></td>
-                        <td>
-                            @if ($k->aktif)
-                                <span class="badge bg-green-lt">Aktif</span>
-                            @else
-                                <span class="badge bg-red-lt">Tidak Aktif</span>
-                            @endif
-                        </td>
+                        <td><span class="badge {{ \Helpers::badge_status_karyawan($k->status) }}"><?= $k->status ?></span></td>
                         <td>
                             @if ($k->id != Auth::user()->id)
                             <div class="btn-list flex-nowrap float-end">

@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
         return response()->json($kelurahan);
     });
 
-    // Get anggota By ID Majelis
+    // Get Anggota By ID Majelis
     Route::get('get-anggota-majlis/{majlis}', function(string $id){
         $majlis = App\Models\Majlis::findOrFail($id);
         $anggota = App\Models\Anggota::where('majlis_id',$id)->where('id','!=',$majlis->ketua_id)->orderBy('id',"DESC")->get();
@@ -71,5 +71,11 @@ Route::middleware('auth')->group(function () {
     Route::get('get-komoditi-usaha/{jenis_usaha_id}', function(string $id){
         $komoditi_usaha = App\Models\KomoditiUsaha::where('jenis_usaha_id',$id)->orderBy('nama')->get();
         return response()->json($komoditi_usaha);
+    });
+
+    // Get Kota/Kabupaten
+    Route::get('get-kota-kab', function(){
+        $kota_kab = App\Models\Kota::orderBy('nama_kota')->get();
+        return response()->json($kota_kab);
     });
 });

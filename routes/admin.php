@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\DataMaster\PiutangController;
 use App\Http\Controllers\Admin\Laporan\PengajuanAnggota\DiterimaController;
 use App\Http\Controllers\Admin\Laporan\PengajuanAnggota\DitolakController;
 use App\Http\Controllers\Admin\PembiayaanController;
+use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
@@ -67,5 +68,14 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
             Route::resource('diterima',DiterimaController::class);
             Route::resource('ditolak',DitolakController::class);
         });
+    });
+
+    Route::prefix('profile')->name('profile.')->group(function () {
+        Route::get('/',[ProfileController::class,'index'])->name('index');
+        Route::get('edit',[ProfileController::class,'edit'])->name('edit');
+        Route::put('update',[ProfileController::class,'update'])->name('update');
+        Route::post('password/update',[ProfileController::class,'update_password'])->name('update-password');
+        Route::post('upload-foto-profile',[ProfileController::class,'upload_foto_profile'])->name('upload-foto-profile');
+        Route::delete('delete-foto-profile',[ProfileController::class,'delete_foto_profile'])->name('delete-foto-profile');
     });
 });
