@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin\DataMaster;
 
 use App\Http\Controllers\Controller;
+use App\Models\Asset;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class AssetController extends Controller
 {
@@ -12,7 +15,8 @@ class AssetController extends Controller
      */
     public function index()
     {
-        return view('admin.data-master.asset.index');
+        $asset = Asset::where('kantor_id',Auth::user()->kantor_id)->latest()->search(request('search'))->paginate(10)->onEachSide(0)->withQueryString();
+        return view('admin.data-master.asset.index',compact('asset'));
     }
 
     /**
@@ -20,7 +24,7 @@ class AssetController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.data-master.asset.create');
     }
 
     /**
@@ -28,7 +32,19 @@ class AssetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            "deskripsi" => ["required","max:225"],
+            "nilai_asset" => ["required"],
+        ]);
+        if ($validator->fails()) {
+            return back()->with('error','Gagal, periksa kembali inputan !')->withErrors($validator)->withInput();
+        }
+        Asset::create([
+            "kantor_id" => Auth::user()->kantor_id,
+            "deskripsi" => $request->deskripsi,
+            "nilai" => $request->nilai_asset,
+        ]);
+        return redirect()->route('admin.data-master.asset.index')->with('success','Berhasil menambahkan asset');
     }
 
     /**
@@ -44,7 +60,8 @@ class AssetController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $asset = Asset::findOrFail($id);
+        return view('admin.data-master.asset.edit',compact('asset'));
     }
 
     /**
@@ -52,7 +69,18 @@ class AssetController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            "deskripsi" => ["required","max:225"],
+            "nilai_asset" => ["required"],
+        ]);
+        if ($validator->fails()) {
+            return back()->with('error','Gagal, periksa kembali inputan !')->withErrors($validator)->withInput();
+        }
+        Asset::findOrFail($id)->update([
+            "deskripsi" => $request->deskripsi,
+            "nilai" => $request->nilai_asset,
+        ]);
+        return redirect()->route('admin.data-master.asset.index')->with('success','Berhasil mengedit asset');
     }
 
     /**
@@ -60,6 +88,11 @@ class AssetController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $asset = Asset::findOrFail($id);
+        $asset->delete();
+        session()->flash('success','Berhasil menghapus asset');
+        return response()->json([
+            'success' => true,
+        ],200);
     }
 }

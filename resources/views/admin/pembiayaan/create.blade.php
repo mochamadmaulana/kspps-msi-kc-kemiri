@@ -357,15 +357,15 @@
                         <div class="row">
                             <div class="col-lg-8">
                                 <div class="row">
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3 mb-3">
                                         <label class="form-label required">Kehadiran</label>
                                         <input name="kota_kabupaten_identitas" class="form-control" id="kota-kabupaten-identitas">
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3 mb-3">
                                         <label class="form-label required">Alfa</label>
                                         <input name="kota_kabupaten_identitas" class="form-control" id="kota-kabupaten-identitas">
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3 mb-3">
                                         <label class="form-label required">Tempo</label>
                                         <select name="agama" class="form-select @error('agama') is-invalid @enderror" id="agama" data-placeholder="pilih tempat tinggal">
                                             <option value=""></option>
@@ -375,7 +375,7 @@
                                             <option value="Islam" @if (@old('agama') == 'Islam') selected @endif>100</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3 mb-3">
                                         <label class="form-label required">Presentase</label>
                                         <input name="kota_kabupaten_identitas" class="form-control" id="kota-kabupaten-identitas">
                                     </div>
