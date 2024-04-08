@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('registrasi_anggota', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('anggota_id');
-            $table->foreignId('inputer_id');
-            $table->enum('status',['Diajukan','Diproses','Ditolak','Diterima','Diajukan Ulang'])->default('Diajukan');
-            $table->enum('metode_bayar',['Cash','Transfer']);
-            $table->double('biaya');
-            $table->enum('persetujuan_admin',['Diproses','Diterima','Ditolak'])->default('Diproses');
-            $table->enum('persetujuan_branch_manager',['Diproses','Diterima','Ditolak'])->default('Diproses');
+            $table->string('nomor_registrasi',20);
+            $table->foreignId('kantor_id');
+            $table->foreignId('karyawan_id');
+            $table->enum('status',['Draft','Diajukan','Diproses','Ditolak','Diterima','Diajukan Ulang'])->default('Draft');
+            $table->enum('persetujuan_admin',['Proses','Diterima','Ditolak'])->default('Proses');
+            $table->enum('persetujuan_branch_manager',['Proses','Diterima','Ditolak'])->default('Proses');
+            $table->enum('metode_bayar',['Cash','Transfer'])->nullable();
+            $table->double('biaya')->nullable();
             $table->timestamps();
         });
     }

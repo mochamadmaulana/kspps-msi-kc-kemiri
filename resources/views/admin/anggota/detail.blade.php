@@ -52,7 +52,7 @@
                 </tr>
                 <tr>
                     <th class="col-lg-4">Tempat, Tgl. Lahir</th>
-                    <td class="col-lg fst-italic">{{ $anggota->tempat_lahir->nama_kota }}, {{ date('d-M-Y',strtotime($anggota->tanggal_lahir)) }}</td>
+                    <td class="col-lg fst-italic">{{ $anggota->tempat_lahir->nama_kota }}, {{ \Carbon\Carbon::parse($anggota->tanggal_lahir)->translatedFormat('d F Y') }}</td>
                 </tr>
                 <tr>
                     <th class="col-lg-4">Jenis Kelamin</th>
@@ -199,7 +199,7 @@
                     @else
                     <th class="col-lg-4">Tgl. Registrasi</th>
                     @endif
-                    <td class="col-lg fst-italic">{{ date('d-M-Y',strtotime($anggota->created_at)) }}</td>
+                    <td class="col-lg fst-italic">{{ \Carbon\Carbon::parse($anggota->created_at)->translatedFormat('d F Y') }}</td>
                 </tr>
                 <tr>
                     <th class="col-lg-4">Biaya Registrasi</th>
@@ -281,7 +281,7 @@
                 </tr>
                 <tr>
                     <th class="col-lg-4">Tempat, Tgl. Lahir</th>
-                    <td class="col-lg fst-italic">{{ $anggota->pasangan->tempat_lahir->nama_kota }}, {{ date('d-M-Y',strtotime($anggota->pasangan->tanggal_lahir)) }}</td>
+                    <td class="col-lg fst-italic">{{ $anggota->pasangan->tempat_lahir->nama_kota }}, {{ \Carbon\Carbon::parse($anggota->pasangan->tanggal_lahir)->translatedFormat('d F Y') }}</td>
                 </tr>
                 <tr>
                     <th class="col-lg-4">Jenis Kelamin</th>
@@ -408,7 +408,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-vcenter card-table table-hover">
+            <table class="table card-table table-hover">
                 <thead>
                     <tr>
                         <th>Catatan</th>
@@ -419,7 +419,7 @@
                     @foreach ($anggota->histori_registrasi as $hr)
                         <tr>
                             <td><span class="fw-bold">{{ $hr->karyawan->nama_lengkap }}</span> <span class="{{ \Helpers::bg_badge_role($hr->karyawan->role) }}">{{ $hr->karyawan->role }}</span> : {{ $hr->keterangan }}</td>
-                            <td>{{ date('d-M-Y (H:i)',strtotime($hr->created_at)) }}</td>
+                            <td>{{ \Carbon\Carbon::parse($hr->created_at)->translatedFormat('d F Y') }}</td>
                         </tr>
                     @endforeach
                 </tbody>

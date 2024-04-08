@@ -90,6 +90,40 @@
                                     </span>
                                 </a>
                             </li>
+                            <li class="nav-item dropdown {{ Request::is('branch-manager/data-master*') ? 'active' : '' }}">
+                                <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block {{ Request::is('branch-manager/data-master*') ? 'text-primary' : '' }}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-server" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 4m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" /><path d="M3 12m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" /><path d="M7 8l0 .01" /><path d="M7 16l0 .01" /></svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        Data Master
+                                    </span>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-menu-columns">
+                                        <div class="dropdown-menu-column">
+                                            <a href="{{ route('branch-manager.data-master.piutang.index') }}" class="dropdown-item {{ Request::is('branch-manager/data-master/piutang*') ? 'active' : '' }}">
+                                                Piutang
+                                            </a>
+                                            <a href="{{ route('branch-manager.data-master.asset.index') }}" class="dropdown-item {{ Request::is('branch-manager/data-master/asset*') ? 'active' : '' }}">
+                                                Asset
+                                            </a>
+                                            <a href="{{ route('branch-manager.data-master.karyawan.index') }}" class="dropdown-item {{ Request::is('branch-manager/data-master/karyawan*') ? 'active' : '' }}">
+                                                Karyawan
+                                            </a>
+                                            <a href="{{ route('branch-manager.data-master.kantor.index') }}" class="dropdown-item {{ Request::is('branch-manager/data-master/kantor*') ? 'active' : '' }}">
+                                                Kantor
+                                            </a>
+                                            <a href="{{ route('branch-manager.data-master.majlis.index') }}" class="dropdown-item {{ Request::is('branch-manager/data-master/majlis*') ? 'active' : '' }}">
+                                                Majlis
+                                            </a>
+                                            <a href="{{ route('branch-manager.data-master.komoditi-usaha.index') }}" class="dropdown-item {{ Request::is('branch-manager/data-master/komoditi-usaha*') ? 'active' : '' }}">
+                                                Komoditi Usaha
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                             <li class="nav-item {{ Request::is('branch-manager/anggota*') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('branch-manager.anggota.index') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block {{ Request::is('branch-manager/anggota*') ? 'text-primary' : '' }}">

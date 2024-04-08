@@ -13,7 +13,7 @@ class RegistrasiAnggota extends Model
 
     function anggota()
     {
-        return $this->belongsTo(Anggota::class);
+        return $this->hasOne(Anggota::class);
     }
     function inputer()
     {

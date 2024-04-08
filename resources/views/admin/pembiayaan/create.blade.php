@@ -350,8 +350,9 @@
                     <input name="kota_kabupaten_identitas" class="form-control" id="kota-kabupaten-identitas">
                 </div>
                 <div class="card mb-3">
-                    <div class="card-header bg-secondary">
-                        <h1 class="card-title text-white">Prestasi Kehadiran Anggota</h1>
+                    <div class="card-status-top bg-primary"></div>
+                    <div class="card-header">
+                        <h1 class="card-title">Prestasi Kehadiran Anggota</h1>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -389,8 +390,9 @@
                     </div>
                 </div>
                 <div class="card mb-3">
-                    <div class="card-header bg-secondary">
-                        <h1 class="card-title text-white">Prestasi Kecepatan Pelunasan</h1>
+                    <div class="card-status-top bg-primary"></div>
+                    <div class="card-header">
+                        <h1 class="card-title">Prestasi Kecepatan Pelunasan</h1>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -422,8 +424,9 @@
                     </div>
                 </div>
                 <div class="card mb-3">
-                    <div class="card-header bg-secondary">
-                        <h1 class="card-title text-white">Prestasi Tabungan Sukarela</h1>
+                    <div class="card-status-top bg-primary"></div>
+                    <div class="card-header">
+                        <h1 class="card-title">Prestasi Tabungan Sukarela</h1>
                     </div>
                     <div class="card-body">
                         <div class="row">

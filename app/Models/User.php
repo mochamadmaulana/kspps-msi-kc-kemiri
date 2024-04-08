@@ -21,6 +21,7 @@ class User extends Authenticatable
                 ->orWhere('nomor_induk_karyawan','like','%'.$search.'%')
                 ->orWhere('email','like','%'.$search.'%')
                 ->orWhere('role','like','%'.$search.'%')
+                ->orWhere('tanggal_lahir','like','%'.$search.'%')
                 ->orWhereHas('tempat_lahir',fn($query) =>
                     $query->where('nama_kota','like','%'.$search.'%')
                 )

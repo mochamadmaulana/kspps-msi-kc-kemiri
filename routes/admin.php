@@ -40,8 +40,16 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
         Route::resource('komoditi-usaha',KomoditiUsahaController::class)->except('show');
     });
 
-    Route::resource('anggota',AnggotaController::class);
+    Route::resource('anggota',AnggotaController::class)->except('store','edit','update');
     Route::prefix('anggota')->name('anggota.')->group(function () {
+        Route::get('registrasi/{id_regist}',[AnggotaController::class,'registrasi'])->name('registrasi');
+        Route::get('registrasi/{id_regist}/identitas',[AnggotaController::class,'identitas'])->name('registrasi.identitas');
+        Route::post('registrasi/{id_regist}/identitas',[AnggotaController::class,'identitas_store'])->name('registrasi.identitas-store');
+        Route::get('registrasi/{id_regist}/identitas/{id}',[AnggotaController::class,'identitas_edit'])->name('registrasi.identitas-edit');
+        Route::get('registrasi/{id_regist}/alamat-identitas',[AnggotaController::class,'alamat_identitas'])->name('registrasi.alamat-identitas');
+        Route::post('registrasi/{id_regist}/alamat-identitas',[AnggotaController::class,'alamat_identitas_store'])->name('registrasi.alamat-identitas-store');
+        Route::get('registrasi/{id_regist}/usaha',[AnggotaController::class,'usaha'])->name('registrasi.usaha');
+
         Route::post('persetujuan-registrasi/{id}',[AnggotaController::class,'persetujuan_registrasi'])->name('persetujuan-registrasi');
 
         Route::put('provinsi/{anggota}/update/{alamat}',[AnggotaController::class,'update_provinsi'])->name('update-provinsi');

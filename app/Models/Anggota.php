@@ -44,7 +44,7 @@ class Anggota extends Model
     }
     function registrasi()
     {
-        return $this->hasOne(RegistrasiAnggota::class);
+        return $this->belongsTo(RegistrasiAnggota::class,'registrasi_anggota_id');
     }
     function pasangan()
     {

@@ -21,6 +21,11 @@
         Galeri
     </button>
 </div>
+@if ($kantor->galeri_kantor->count() == 0)
+<h3 class="text-center text-muted fst-italic">
+    Galeri kosong !..
+</h3>
+@endif
 <div class="row row-cards">
     @foreach ($kantor->galeri_kantor as $gk)
     <div class="col-sm-6 col-lg-4">

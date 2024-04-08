@@ -16,7 +16,7 @@ class Asset extends Model
     {
         $query->when($filters ?? false, fn($query, $search) =>
             $query->where('deskripsi','like','%'.$search.'%')
-                ->orWhere('nominal','like','%'.$search.'%')
+                ->orWhere('nilai','like','%'.$search.'%')
         );
     }
 }

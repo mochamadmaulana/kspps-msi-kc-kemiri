@@ -17,7 +17,6 @@ class Majlis extends Model
         $query->where('kode','like','%'.$search.'%')
             ->orWhere('nama','like','%'.$search.'%')
             ->orWhere('kategori','like','%'.$search.'%')
-            ->orWhere('alamat','like','%'.$search.'%')
             ->orWhereHas('kecamatan',fn($query) =>
                 $query->where('nama_kecamatan','like','%'.$search.'%')
             )

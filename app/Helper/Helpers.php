@@ -1,6 +1,7 @@
 <?php
 namespace App\Helper;
 
+use App\Models\RegistrasiAnggota;
 use App\Models\User;
 
 class Helpers {
@@ -80,5 +81,10 @@ class Helpers {
         }else{
             return 'badge bg-red';
         }
+    }
+    public static function nomor_registrasi_anggota(Int $last_no, String $id_kantor)
+    {
+        $nomor_registrasi = $id_kantor.str_pad(substr($last_no,-6)+1,6,0,STR_PAD_LEFT);
+        return $nomor_registrasi;
     }
 }

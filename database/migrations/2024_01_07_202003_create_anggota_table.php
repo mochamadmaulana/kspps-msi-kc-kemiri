@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('anggota', function (Blueprint $table) {
             $table->id();
             $table->string('uuid');
+            $table->foreignId('registrasi_anggota_id');
             $table->foreignId('kantor_id');
-            $table->foreignId('inputer_id');
+            $table->foreignId('karyawan_id');
             $table->foreignId('majlis_id');
             $table->enum('jenis_keanggotaan',['Majlis','Umum']);
             $table->enum('jenis_identitas',['KTP','SIM']);
@@ -33,7 +34,6 @@ return new class extends Migration
             $table->string('nama_ibu_kandung');
             $table->string('nomor_kartu_keluarga',20);
             $table->string('jumlah_keluarga');
-            $table->string('pendapatan_lain_lain')->nullable();
             $table->timestamps();
         });
     }
